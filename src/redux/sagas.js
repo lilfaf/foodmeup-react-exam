@@ -3,9 +3,9 @@
  */
 
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { fetchJedi, addJedi } from './api';
+import { fetchJedi, addJedi } from '../api';
 
-import { fetchJedi as fetchJediAction, jediReceived, jediError } from './action';
+import { fetchJedi as fetchJediAction, jediReceived, jediError } from './actions';
 import { ADD_NEW_JEDI, FETCH_JEDI } from './constants';
 
 export function* getJedi() {
