@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class JediList extends Component {
   componentWillMount() {
@@ -15,5 +16,13 @@ class JediList extends Component {
     );
   }
 }
+
+JediList.propTypes = {
+  fetchJedi: PropTypes.func.isRequired,
+  jedi: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+  })).isRequired,
+};
 
 export default JediList;

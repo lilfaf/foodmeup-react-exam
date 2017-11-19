@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class JediForm extends Component {
   constructor(props) {
@@ -28,5 +29,10 @@ class JediForm extends Component {
     );
   }
 }
+
+JediForm.propTypes = {
+  addJedi: PropTypes.func.isRequired,
+};
+
 
 export default JediForm;
