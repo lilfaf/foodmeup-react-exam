@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 
+import JediList from './components/JediList';
 import { fetchJedi } from './action';
 
 function mapStateToProps(state) {
@@ -30,11 +31,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        {jedi.map((jedi, index) => (
-          <div key={index}>
-            Jedi: id: {jedi.id} name: {jedi.name}
-          </div>
-        ))}
+        <JediList jedi={jedi} />
       </div>
     );
   }
