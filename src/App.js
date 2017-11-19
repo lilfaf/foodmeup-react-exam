@@ -5,6 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import JediList from './components/JediList';
+import JediForm from './components/JediForm';
 import { fetchJedi } from './action';
 
 function mapStateToProps(state) {
@@ -32,6 +33,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <JediList jedi={jedi} />
+        <JediForm />
       </div>
     );
   }

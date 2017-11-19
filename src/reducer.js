@@ -1,12 +1,11 @@
 /**
  * Created by thomashourlier on 2/26/17.
  */
-
 import { combineReducers } from 'redux';
 import { JEDI_ERROR, JEDI_RECEIVED } from './constants';
 
-const jediReceived = (state, { jedi }) =>
-  [...jedi, ...state];
+
+const jediReceived = (state, { jedi }) => jedi;
 
 function jediReducer(state = [], action) {
   switch (action.type) {

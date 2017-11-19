@@ -3,7 +3,7 @@
  */
 
 // import axios from 'axios';
-import { FETCH_JEDI, JEDI_ERROR, JEDI_RECEIVED } from './constants';
+import { ADD_NEW_JEDI, FETCH_JEDI, JEDI_ERROR, JEDI_RECEIVED } from './constants';
 
 // export function fetchJedi() {
 //   return (dispatch) => {
@@ -32,4 +32,10 @@ export const jediError = error =>
   ({
     type: JEDI_ERROR,
     error,
+  });
+
+export const addJedi = name =>
+  ({
+    type: ADD_NEW_JEDI,
+    payload: { name },
   });

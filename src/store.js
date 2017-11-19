@@ -17,5 +17,8 @@ export default createStore(
   composeWithDevTools(applyMiddleware(sagaMiddleware)),
 );
 
-// then run the saga
-sagaMiddleware.run(sagas);
+// then run the sagas
+sagas.forEach((saga) => {
+  sagaMiddleware.run(saga);
+});
+
