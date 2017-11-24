@@ -2,7 +2,12 @@
  * Created by thomashourlier on 2/26/17.
  */
 
-import { FETCH_FINISH, FETCH_ERROR } from './types';
+import {
+  FETCH_FINISH,
+  FETCH_ERROR,
+  CREATE_SUCCESS,
+  CREATE_ERROR,
+} from './types';
 
 const initialState = {
   data: [],
@@ -18,6 +23,16 @@ export default (state = initialState, action) => {
         data: payload,
       };
     case FETCH_ERROR:
+      return {
+        ...state,
+        error,
+      };
+    case CREATE_SUCCESS:
+      return {
+        ...state,
+        data: [...state.data, payload],
+      };
+    case CREATE_ERROR:
       return {
         ...state,
         error,

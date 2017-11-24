@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import logo from '../../assets/logo.svg';
 import './style.css';
 
-import { fetchJedi } from '../../reducers/jedi/action';
+import * as actions from '../../reducers/jedi/action';
+import Form from '../Form';
 
 class App extends Component {
   componentWillMount() {
@@ -12,7 +13,7 @@ class App extends Component {
   }
 
   render() {
-    const { jedis, error } = this.props;
+    const { jedi, error, createJedi } = this.props;
 
     return (
       <div className="App">
@@ -20,12 +21,16 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
+
         {error &&
           <p>{error}</p>
         }
-        {jedis.map((jedi, index) => (
+
+        <Form submitForm={createJedi} />
+
+        {jedi.map((j, index) => (
           <div key={index}>
-            Jedi: id: {jedi.id} name: {jedi.name}
+            Jedi: id: {j.id} name: {j.name}
           </div>
         ))}
       </div>
@@ -34,18 +39,20 @@ class App extends Component {
 }
 
 App.propTypes = {
-  jedis: PropTypes.array,
+  jedi: PropTypes.array,
   fetchJedi: PropTypes.func,
+  createJedi: PropTypes.func,
   error: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
-  jedis: state.jedi.data,
+  jedi: state.jedi.data,
   error: state.jedi.error,
 });
 
 const mapDispatchToProps = {
-  fetchJedi,
+  fetchJedi: actions.fetchJedi,
+  createJedi: actions.createJedi,
 };
 
 export default connect(
